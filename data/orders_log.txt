@@ -1,0 +1,6 @@
+Test write
+{"order_id": 8915, "product": "apple", "quantity": 5}
+{"order_id": 9025, "product": "orange", "quantity": 2}
+{"order_id": 4650, "product": "mango", "quantity": 5}
+{"order_id": 5748, "product": "mango", "quantity": 1}
+{"order_id": 6301, "product": "apple", "quantity": 3}
