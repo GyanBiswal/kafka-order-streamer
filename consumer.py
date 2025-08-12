@@ -3,14 +3,14 @@ import json
 import os
 
 # Make sure 'data' folder exists before starting to consume
-os.makedirs('data', exist_ok=True)
+os.makedirs('data', exist_ok=True) # this ensures that the folder where you want to save order logs (data/orders_log.txt) is present before you start writing files.
 
 consumer = KafkaConsumer(
-    'orders',
-    bootstrap_servers='localhost:9092',
-    auto_offset_reset='earliest',
-    group_id='order-group',
-    value_deserializer=lambda m: json.loads(m.decode('utf-8'))
+    'orders', # Subscribes to the topic 'orders'
+    bootstrap_servers='localhost:9092', # Connects to Kafka broker at localhost:9092.
+    auto_offset_reset='earliest', # Starts reading from the earliest message if no committed offset exists.
+    group_id='order-group', # Uses a consumer group named 'order-group' for coordination and load balancing.
+    value_deserializer=lambda m: json.loads(m.decode('utf-8')) # Deserializes incoming messages from JSON bytes to Python dict.
 )
 
 print("Waiting for orders...")
